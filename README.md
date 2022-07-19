@@ -1,0 +1,2 @@
+# CircFusion
+CircFusion is a new software tool to detect linear fusions and f-circRNAs from RNA-seq data, both in samples where the fusion breakpoint is known and in a discovery mode. CircFusion can detect chimeric transcripts even in the presence of multiple translocation breakpoints, both for the main and unbalanced reciprocal fusion, which are quite common in malignant cells. The CircFusion output includes the list of the f-circRNAs and linear RNAs identified for each translocation, and overall for each sample, and other details about the read alignment.
