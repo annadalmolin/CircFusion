@@ -151,10 +151,10 @@ Each subdirectory contains:
 - __fusions/__
 
   The directory contains as many subdirectories as the samples investigated. Each sample subdirectory includes:
-  - separated text files for the detected fusion RNAs, considering all translocations together (start positions are 1-based):
-    - _direct_fusion_transcripts.txt_ and _reciprocal_fusion_transcripts.txt_: linear fusions from the direct or the reciprocal translocation, respectively;
-    - _alternative_direct_fusion_transcripts.txt_ and _alternative_reciprocal_fusion_transcripts.txt_: linear fusions from the direct or the reciprocal translocation, respectively, according to breakpoints different from those indicated by the user;
-    - _reciprocal_fusion_circRNAs.txt_ and _direct_fusion_circRNAs.txt_: fusion circRNAs according to the direct or the reciprocal translocation, respectively;
+  - separated text and CSV files for the detected fusion RNAs, considering all translocations together (start positions are 1-based):
+    - _direct_fusion_transcripts.txt/.csv_ and _reciprocal_fusion_transcripts.txt/.csv_: linear fusions from the direct or the reciprocal translocation, respectively;
+    - _alternative_direct_fusion_transcripts.txt/.csv_ and _alternative_reciprocal_fusion_transcripts.txt/.csv_: linear fusions from the direct or the reciprocal translocation, respectively, according to breakpoints different from those indicated by the user;
+    - _reciprocal_fusion_circRNAs.txt/.csv_ and _direct_fusion_circRNAs.txt/.csv_: fusion circRNAs according to the direct or the reciprocal translocation, respectively;
 
   - two subdirectories for each investigated translocation, one for the direct and one for the reciprocal translocation, with separated text files for the detected fusion RNAs and reads, according to that translocation:
     - files with the putative fusion reads filtered step by step according to the parameters in _params_fusions.txt_ (start positions are 0-based):
