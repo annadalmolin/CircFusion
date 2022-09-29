@@ -1,0 +1,684 @@
+STAR version=2.7.5c
+STAR compilation time,server,dir=Fri Sep 4 16:16:12 CEST 2020 :/home/anna/tools/STAR-2.7.5c/source
+##### Command Line:
+/tools/STAR-2.7.5c/source/STAR --runThreadN 8 --genomeDir /data/reference/genome_reference --readFilesCommand "zcat" --readFilesIn /data/reads/sample1_SE.fq.gz --outFilterMultimapNmax 10 --outFilterMatchNmin 5 --outFilterMismatchNmax 4 --outFilterMismatchNoverReadLmax 0.01 --outSAMprimaryFlag AllBestScore --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --alignTranscriptsPerReadNmax 20000 --alignSJstitchMismatchNmax -1 -1 -1 -1
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+runThreadN                    8     ~RE-DEFINED
+genomeDir                     /data/reference/genome_reference     ~RE-DEFINED
+readFilesCommand              zcat        ~RE-DEFINED
+readFilesIn                   /data/reads/sample1_SE.fq.gz        ~RE-DEFINED
+outFilterMultimapNmax         10     ~RE-DEFINED
+outFilterMatchNmin            5     ~RE-DEFINED
+outFilterMismatchNmax         4     ~RE-DEFINED
+outFilterMismatchNoverReadLmax0.01     ~RE-DEFINED
+outSAMprimaryFlag             AllBestScore     ~RE-DEFINED
+outSAMtype                    BAM   SortedByCoordinate        ~RE-DEFINED
+outReadsUnmapped              Fastx     ~RE-DEFINED
+alignTranscriptsPerReadNmax   20000     ~RE-DEFINED
+alignSJstitchMismatchNmax     -1   -1   -1   -1        ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runThreadN                        8
+genomeDir                         /data/reference/genome_reference
+readFilesIn                       /data/reads/sample1_SE.fq.gz   
+readFilesCommand                  zcat   
+outReadsUnmapped                  Fastx
+outSAMtype                        BAM   SortedByCoordinate   
+outSAMprimaryFlag                 AllBestScore
+outFilterMultimapNmax             10
+outFilterMatchNmin                5
+outFilterMismatchNmax             4
+outFilterMismatchNoverReadLmax    0.01
+alignTranscriptsPerReadNmax       20000
+alignSJstitchMismatchNmax         -1   -1   -1   -1   
+
+-------------------------------
+##### Final effective command line:
+/tools/STAR-2.7.5c/source/STAR   --runThreadN 8   --genomeDir /data/reference/genome_reference   --readFilesIn /data/reads/sample1_SE.fq.gz      --readFilesCommand zcat      --outReadsUnmapped Fastx   --outSAMtype BAM   SortedByCoordinate      --outSAMprimaryFlag AllBestScore   --outFilterMultimapNmax 10   --outFilterMatchNmin 5   --outFilterMismatchNmax 4   --outFilterMismatchNoverReadLmax 0.01   --alignTranscriptsPerReadNmax 20000   --alignSJstitchMismatchNmax -1   -1   -1   -1   
+----------------------------------------
+
+Number of fastq files for each mate = 1
+
+   Input read files for mate 1 :
+-rw-rw-r-- 1 1004 1004 5857 Sep 29 15:07 /data/reads/sample1_SE.fq.gz
+
+   readsCommandsFile:
+exec > "./_STARtmp/tmp.fifo.read1"
+echo FILE 0
+zcat      "/data/reads/sample1_SE.fq.gz"
+
+WARNING: --limitBAMsortRAM=0, will use genome size as RAM limit for BAM sorting
+Finished loading and checking parameters
+Reading genome generation parameters:
+### /tools/STAR-2.7.5c/source/STAR   --runMode genomeGenerate   --runThreadN 8   --genomeDir genome_reference   --genomeFastaFiles reference_sequences.fa      --genomeSAindexNbases 10
+### GstrandBit=32
+versionGenome                 2.7.4a     ~RE-DEFINED
+genomeType                    Full     ~RE-DEFINED
+genomeFastaFiles              reference_sequences.fa        ~RE-DEFINED
+genomeSAindexNbases           10     ~RE-DEFINED
+genomeChrBinNbits             18     ~RE-DEFINED
+genomeSAsparseD               1     ~RE-DEFINED
+genomeTransformType           None     ~RE-DEFINED
+genomeTransformVCF            -     ~RE-DEFINED
+sjdbOverhang                  0     ~RE-DEFINED
+sjdbFileChrStartEnd           -        ~RE-DEFINED
+sjdbGTFfile                   -     ~RE-DEFINED
+sjdbGTFchrPrefix              -     ~RE-DEFINED
+sjdbGTFfeatureExon            exon     ~RE-DEFINED
+sjdbGTFtagExonParentTranscripttranscript_id     ~RE-DEFINED
+sjdbGTFtagExonParentGene      gene_id     ~RE-DEFINED
+sjdbInsertSave                Basic     ~RE-DEFINED
+genomeFileSizes               132644864   2736594        ~RE-DEFINED
+Genome version is compatible with current STAR
+Number of real (reference) chromosomes= 506
+1	BCR-ABL1|exon_1-exon_1	2540	0
+2	BCR-ABL1|exon_1-exon_10	2195	262144
+3	BCR-ABL1|exon_1-exon_11	3745	524288
+4	BCR-ABL1|exon_1-exon_2	2204	786432
+5	BCR-ABL1|exon_1-exon_3	2326	1048576
+6	BCR-ABL1|exon_1-exon_4	2303	1310720
+7	BCR-ABL1|exon_1-exon_5	2115	1572864
+8	BCR-ABL1|exon_1-exon_6	2208	1835008
+9	BCR-ABL1|exon_1-exon_7	2215	2097152
+10	BCR-ABL1|exon_1-exon_8	2183	2359296
+11	BCR-ABL1|exon_1-exon_9	2120	2621440
+12	BCR-ABL1|exon_10-exon_1	679	2883584
+13	BCR-ABL1|exon_10-exon_10	334	3145728
+14	BCR-ABL1|exon_10-exon_11	1884	3407872
+15	BCR-ABL1|exon_10-exon_2	343	3670016
+16	BCR-ABL1|exon_10-exon_3	465	3932160
+17	BCR-ABL1|exon_10-exon_4	442	4194304
+18	BCR-ABL1|exon_10-exon_5	254	4456448
+19	BCR-ABL1|exon_10-exon_6	347	4718592
+20	BCR-ABL1|exon_10-exon_7	354	4980736
+21	BCR-ABL1|exon_10-exon_8	322	5242880
+22	BCR-ABL1|exon_10-exon_9	259	5505024
+23	BCR-ABL1|exon_11-exon_1	630	5767168
+24	BCR-ABL1|exon_11-exon_10	285	6029312
+25	BCR-ABL1|exon_11-exon_11	1835	6291456
+26	BCR-ABL1|exon_11-exon_2	294	6553600
+27	BCR-ABL1|exon_11-exon_3	416	6815744
+28	BCR-ABL1|exon_11-exon_4	393	7077888
+29	BCR-ABL1|exon_11-exon_5	205	7340032
+30	BCR-ABL1|exon_11-exon_6	298	7602176
+31	BCR-ABL1|exon_11-exon_7	305	7864320
+32	BCR-ABL1|exon_11-exon_8	273	8126464
+33	BCR-ABL1|exon_11-exon_9	210	8388608
+34	BCR-ABL1|exon_12-exon_1	586	8650752
+35	BCR-ABL1|exon_12-exon_10	241	8912896
+36	BCR-ABL1|exon_12-exon_11	1791	9175040
+37	BCR-ABL1|exon_12-exon_2	250	9437184
+38	BCR-ABL1|exon_12-exon_3	372	9699328
+39	BCR-ABL1|exon_12-exon_4	349	9961472
+40	BCR-ABL1|exon_12-exon_5	161	10223616
+41	BCR-ABL1|exon_12-exon_6	254	10485760
+42	BCR-ABL1|exon_12-exon_7	261	10747904
+43	BCR-ABL1|exon_12-exon_8	229	11010048
+44	BCR-ABL1|exon_12-exon_9	166	11272192
+45	BCR-ABL1|exon_13-exon_1	615	11534336
+46	BCR-ABL1|exon_13-exon_10	270	11796480
+47	BCR-ABL1|exon_13-exon_11	1820	12058624
+48	BCR-ABL1|exon_13-exon_2	279	12320768
+49	BCR-ABL1|exon_13-exon_3	401	12582912
+50	BCR-ABL1|exon_13-exon_4	378	12845056
+51	BCR-ABL1|exon_13-exon_5	190	13107200
+52	BCR-ABL1|exon_13-exon_6	283	13369344
+53	BCR-ABL1|exon_13-exon_7	290	13631488
+54	BCR-ABL1|exon_13-exon_8	258	13893632
+55	BCR-ABL1|exon_13-exon_9	195	14155776
+56	BCR-ABL1|exon_14-exon_1	585	14417920
+57	BCR-ABL1|exon_14-exon_10	240	14680064
+58	BCR-ABL1|exon_14-exon_11	1790	14942208
+59	BCR-ABL1|exon_14-exon_2	249	15204352
+60	BCR-ABL1|exon_14-exon_3	371	15466496
+61	BCR-ABL1|exon_14-exon_4	348	15728640
+62	BCR-ABL1|exon_14-exon_5	160	15990784
+63	BCR-ABL1|exon_14-exon_6	253	16252928
+64	BCR-ABL1|exon_14-exon_7	260	16515072
+65	BCR-ABL1|exon_14-exon_8	228	16777216
+66	BCR-ABL1|exon_14-exon_9	165	17039360
+67	BCR-ABL1|exon_15-exon_1	608	17301504
+68	BCR-ABL1|exon_15-exon_10	263	17563648
+69	BCR-ABL1|exon_15-exon_11	1813	17825792
+70	BCR-ABL1|exon_15-exon_2	272	18087936
+71	BCR-ABL1|exon_15-exon_3	394	18350080
+72	BCR-ABL1|exon_15-exon_4	371	18612224
+73	BCR-ABL1|exon_15-exon_5	183	18874368
+74	BCR-ABL1|exon_15-exon_6	276	19136512
+75	BCR-ABL1|exon_15-exon_7	283	19398656
+76	BCR-ABL1|exon_15-exon_8	251	19660800
+77	BCR-ABL1|exon_15-exon_9	188	19922944
+78	BCR-ABL1|exon_16-exon_1	642	20185088
+79	BCR-ABL1|exon_16-exon_10	297	20447232
+80	BCR-ABL1|exon_16-exon_11	1847	20709376
+81	BCR-ABL1|exon_16-exon_2	306	20971520
+82	BCR-ABL1|exon_16-exon_3	428	21233664
+83	BCR-ABL1|exon_16-exon_4	405	21495808
+84	BCR-ABL1|exon_16-exon_5	217	21757952
+85	BCR-ABL1|exon_16-exon_6	310	22020096
+86	BCR-ABL1|exon_16-exon_7	317	22282240
+87	BCR-ABL1|exon_16-exon_8	285	22544384
+88	BCR-ABL1|exon_16-exon_9	222	22806528
+89	BCR-ABL1|exon_17-exon_1	570	23068672
+90	BCR-ABL1|exon_17-exon_10	225	23330816
+91	BCR-ABL1|exon_17-exon_11	1775	23592960
+92	BCR-ABL1|exon_17-exon_2	234	23855104
+93	BCR-ABL1|exon_17-exon_3	356	24117248
+94	BCR-ABL1|exon_17-exon_4	333	24379392
+95	BCR-ABL1|exon_17-exon_5	145	24641536
+96	BCR-ABL1|exon_17-exon_6	238	24903680
+97	BCR-ABL1|exon_17-exon_7	245	25165824
+98	BCR-ABL1|exon_17-exon_8	213	25427968
+99	BCR-ABL1|exon_17-exon_9	150	25690112
+100	BCR-ABL1|exon_18-exon_1	620	25952256
+101	BCR-ABL1|exon_18-exon_10	275	26214400
+102	BCR-ABL1|exon_18-exon_11	1825	26476544
+103	BCR-ABL1|exon_18-exon_2	284	26738688
+104	BCR-ABL1|exon_18-exon_3	406	27000832
+105	BCR-ABL1|exon_18-exon_4	383	27262976
+106	BCR-ABL1|exon_18-exon_5	195	27525120
+107	BCR-ABL1|exon_18-exon_6	288	27787264
+108	BCR-ABL1|exon_18-exon_7	295	28049408
+109	BCR-ABL1|exon_18-exon_8	263	28311552
+110	BCR-ABL1|exon_18-exon_9	200	28573696
+111	BCR-ABL1|exon_19-exon_1	650	28835840
+112	BCR-ABL1|exon_19-exon_10	305	29097984
+113	BCR-ABL1|exon_19-exon_11	1855	29360128
+114	BCR-ABL1|exon_19-exon_2	314	29622272
+115	BCR-ABL1|exon_19-exon_3	436	29884416
+116	BCR-ABL1|exon_19-exon_4	413	30146560
+117	BCR-ABL1|exon_19-exon_5	225	30408704
+118	BCR-ABL1|exon_19-exon_6	318	30670848
+119	BCR-ABL1|exon_19-exon_7	325	30932992
+120	BCR-ABL1|exon_19-exon_8	293	31195136
+121	BCR-ABL1|exon_19-exon_9	230	31457280
+122	BCR-ABL1|exon_2-exon_1	692	31719424
+123	BCR-ABL1|exon_2-exon_10	347	31981568
+124	BCR-ABL1|exon_2-exon_11	1897	32243712
+125	BCR-ABL1|exon_2-exon_2	356	32505856
+126	BCR-ABL1|exon_2-exon_3	478	32768000
+127	BCR-ABL1|exon_2-exon_4	455	33030144
+128	BCR-ABL1|exon_2-exon_5	267	33292288
+129	BCR-ABL1|exon_2-exon_6	360	33554432
+130	BCR-ABL1|exon_2-exon_7	367	33816576
+131	BCR-ABL1|exon_2-exon_8	335	34078720
+132	BCR-ABL1|exon_2-exon_9	272	34340864
+133	BCR-ABL1|exon_20-exon_1	645	34603008
+134	BCR-ABL1|exon_20-exon_10	300	34865152
+135	BCR-ABL1|exon_20-exon_11	1850	35127296
+136	BCR-ABL1|exon_20-exon_2	309	35389440
+137	BCR-ABL1|exon_20-exon_3	431	35651584
+138	BCR-ABL1|exon_20-exon_4	408	35913728
+139	BCR-ABL1|exon_20-exon_5	220	36175872
+140	BCR-ABL1|exon_20-exon_6	313	36438016
+141	BCR-ABL1|exon_20-exon_7	320	36700160
+142	BCR-ABL1|exon_20-exon_8	288	36962304
+143	BCR-ABL1|exon_20-exon_9	225	37224448
+144	BCR-ABL1|exon_21-exon_1	616	37486592
+145	BCR-ABL1|exon_21-exon_10	271	37748736
+146	BCR-ABL1|exon_21-exon_11	1821	38010880
+147	BCR-ABL1|exon_21-exon_2	280	38273024
+148	BCR-ABL1|exon_21-exon_3	402	38535168
+149	BCR-ABL1|exon_21-exon_4	379	38797312
+150	BCR-ABL1|exon_21-exon_5	191	39059456
+151	BCR-ABL1|exon_21-exon_6	284	39321600
+152	BCR-ABL1|exon_21-exon_7	291	39583744
+153	BCR-ABL1|exon_21-exon_8	259	39845888
+154	BCR-ABL1|exon_21-exon_9	196	40108032
+155	BCR-ABL1|exon_22-exon_1	673	40370176
+156	BCR-ABL1|exon_22-exon_10	328	40632320
+157	BCR-ABL1|exon_22-exon_11	1878	40894464
+158	BCR-ABL1|exon_22-exon_2	337	41156608
+159	BCR-ABL1|exon_22-exon_3	459	41418752
+160	BCR-ABL1|exon_22-exon_4	436	41680896
+161	BCR-ABL1|exon_22-exon_5	248	41943040
+162	BCR-ABL1|exon_22-exon_6	341	42205184
+163	BCR-ABL1|exon_22-exon_7	348	42467328
+164	BCR-ABL1|exon_22-exon_8	316	42729472
+165	BCR-ABL1|exon_22-exon_9	253	42991616
+166	BCR-ABL1|exon_23-exon_1	3115	43253760
+167	BCR-ABL1|exon_23-exon_10	2770	43515904
+168	BCR-ABL1|exon_23-exon_11	4320	43778048
+169	BCR-ABL1|exon_23-exon_2	2779	44040192
+170	BCR-ABL1|exon_23-exon_3	2901	44302336
+171	BCR-ABL1|exon_23-exon_4	2878	44564480
+172	BCR-ABL1|exon_23-exon_5	2690	44826624
+173	BCR-ABL1|exon_23-exon_6	2783	45088768
+174	BCR-ABL1|exon_23-exon_7	2790	45350912
+175	BCR-ABL1|exon_23-exon_8	2758	45613056
+176	BCR-ABL1|exon_23-exon_9	2695	45875200
+177	BCR-ABL1|exon_3-exon_1	615	46137344
+178	BCR-ABL1|exon_3-exon_10	270	46399488
+179	BCR-ABL1|exon_3-exon_11	1820	46661632
+180	BCR-ABL1|exon_3-exon_2	279	46923776
+181	BCR-ABL1|exon_3-exon_3	401	47185920
+182	BCR-ABL1|exon_3-exon_4	378	47448064
+183	BCR-ABL1|exon_3-exon_5	190	47710208
+184	BCR-ABL1|exon_3-exon_6	283	47972352
+185	BCR-ABL1|exon_3-exon_7	290	48234496
+186	BCR-ABL1|exon_3-exon_8	258	48496640
+187	BCR-ABL1|exon_3-exon_9	195	48758784
+188	BCR-ABL1|exon_4-exon_1	696	49020928
+189	BCR-ABL1|exon_4-exon_10	351	49283072
+190	BCR-ABL1|exon_4-exon_11	1901	49545216
+191	BCR-ABL1|exon_4-exon_2	360	49807360
+192	BCR-ABL1|exon_4-exon_3	482	50069504
+193	BCR-ABL1|exon_4-exon_4	459	50331648
+194	BCR-ABL1|exon_4-exon_5	271	50593792
+195	BCR-ABL1|exon_4-exon_6	364	50855936
+196	BCR-ABL1|exon_4-exon_7	371	51118080
+197	BCR-ABL1|exon_4-exon_8	339	51380224
+198	BCR-ABL1|exon_4-exon_9	276	51642368
+199	BCR-ABL1|exon_5-exon_1	618	51904512
+200	BCR-ABL1|exon_5-exon_10	273	52166656
+201	BCR-ABL1|exon_5-exon_11	1823	52428800
+202	BCR-ABL1|exon_5-exon_2	282	52690944
+203	BCR-ABL1|exon_5-exon_3	404	52953088
+204	BCR-ABL1|exon_5-exon_4	381	53215232
+205	BCR-ABL1|exon_5-exon_5	193	53477376
+206	BCR-ABL1|exon_5-exon_6	286	53739520
+207	BCR-ABL1|exon_5-exon_7	293	54001664
+208	BCR-ABL1|exon_5-exon_8	261	54263808
+209	BCR-ABL1|exon_5-exon_9	198	54525952
+210	BCR-ABL1|exon_6-exon_1	571	54788096
+211	BCR-ABL1|exon_6-exon_10	226	55050240
+212	BCR-ABL1|exon_6-exon_11	1776	55312384
+213	BCR-ABL1|exon_6-exon_2	235	55574528
+214	BCR-ABL1|exon_6-exon_3	357	55836672
+215	BCR-ABL1|exon_6-exon_4	334	56098816
+216	BCR-ABL1|exon_6-exon_5	146	56360960
+217	BCR-ABL1|exon_6-exon_6	239	56623104
+218	BCR-ABL1|exon_6-exon_7	246	56885248
+219	BCR-ABL1|exon_6-exon_8	214	57147392
+220	BCR-ABL1|exon_6-exon_9	151	57409536
+221	BCR-ABL1|exon_7-exon_1	563	57671680
+222	BCR-ABL1|exon_7-exon_10	218	57933824
+223	BCR-ABL1|exon_7-exon_11	1768	58195968
+224	BCR-ABL1|exon_7-exon_2	227	58458112
+225	BCR-ABL1|exon_7-exon_3	349	58720256
+226	BCR-ABL1|exon_7-exon_4	326	58982400
+227	BCR-ABL1|exon_7-exon_5	138	59244544
+228	BCR-ABL1|exon_7-exon_6	231	59506688
+229	BCR-ABL1|exon_7-exon_7	238	59768832
+230	BCR-ABL1|exon_7-exon_8	206	60030976
+231	BCR-ABL1|exon_7-exon_9	143	60293120
+232	BCR-ABL1|exon_8-exon_1	651	60555264
+233	BCR-ABL1|exon_8-exon_10	306	60817408
+234	BCR-ABL1|exon_8-exon_11	1856	61079552
+235	BCR-ABL1|exon_8-exon_2	315	61341696
+236	BCR-ABL1|exon_8-exon_3	437	61603840
+237	BCR-ABL1|exon_8-exon_4	414	61865984
+238	BCR-ABL1|exon_8-exon_5	226	62128128
+239	BCR-ABL1|exon_8-exon_6	319	62390272
+240	BCR-ABL1|exon_8-exon_7	326	62652416
+241	BCR-ABL1|exon_8-exon_8	294	62914560
+242	BCR-ABL1|exon_8-exon_9	231	63176704
+243	BCR-ABL1|exon_9-exon_1	632	63438848
+244	BCR-ABL1|exon_9-exon_10	287	63700992
+245	BCR-ABL1|exon_9-exon_11	1837	63963136
+246	BCR-ABL1|exon_9-exon_2	296	64225280
+247	BCR-ABL1|exon_9-exon_3	418	64487424
+248	BCR-ABL1|exon_9-exon_4	395	64749568
+249	BCR-ABL1|exon_9-exon_5	207	65011712
+250	BCR-ABL1|exon_9-exon_6	300	65273856
+251	BCR-ABL1|exon_9-exon_7	307	65536000
+252	BCR-ABL1|exon_9-exon_8	275	65798144
+253	BCR-ABL1|exon_9-exon_9	212	66060288
+254	ABL1-BCR|exon_1-exon_1	2540	66322432
+255	ABL1-BCR|exon_1-exon_10	679	66584576
+256	ABL1-BCR|exon_1-exon_11	630	66846720
+257	ABL1-BCR|exon_1-exon_12	586	67108864
+258	ABL1-BCR|exon_1-exon_13	615	67371008
+259	ABL1-BCR|exon_1-exon_14	585	67633152
+260	ABL1-BCR|exon_1-exon_15	608	67895296
+261	ABL1-BCR|exon_1-exon_16	642	68157440
+262	ABL1-BCR|exon_1-exon_17	570	68419584
+263	ABL1-BCR|exon_1-exon_18	620	68681728
+264	ABL1-BCR|exon_1-exon_19	650	68943872
+265	ABL1-BCR|exon_1-exon_2	692	69206016
+266	ABL1-BCR|exon_1-exon_20	645	69468160
+267	ABL1-BCR|exon_1-exon_21	616	69730304
+268	ABL1-BCR|exon_1-exon_22	673	69992448
+269	ABL1-BCR|exon_1-exon_23	3115	70254592
+270	ABL1-BCR|exon_1-exon_3	615	70516736
+271	ABL1-BCR|exon_1-exon_4	696	70778880
+272	ABL1-BCR|exon_1-exon_5	618	71041024
+273	ABL1-BCR|exon_1-exon_6	571	71303168
+274	ABL1-BCR|exon_1-exon_7	563	71565312
+275	ABL1-BCR|exon_1-exon_8	651	71827456
+276	ABL1-BCR|exon_1-exon_9	632	72089600
+277	ABL1-BCR|exon_10-exon_1	2195	72351744
+278	ABL1-BCR|exon_10-exon_10	334	72613888
+279	ABL1-BCR|exon_10-exon_11	285	72876032
+280	ABL1-BCR|exon_10-exon_12	241	73138176
+281	ABL1-BCR|exon_10-exon_13	270	73400320
+282	ABL1-BCR|exon_10-exon_14	240	73662464
+283	ABL1-BCR|exon_10-exon_15	263	73924608
+284	ABL1-BCR|exon_10-exon_16	297	74186752
+285	ABL1-BCR|exon_10-exon_17	225	74448896
+286	ABL1-BCR|exon_10-exon_18	275	74711040
+287	ABL1-BCR|exon_10-exon_19	305	74973184
+288	ABL1-BCR|exon_10-exon_2	347	75235328
+289	ABL1-BCR|exon_10-exon_20	300	75497472
+290	ABL1-BCR|exon_10-exon_21	271	75759616
+291	ABL1-BCR|exon_10-exon_22	328	76021760
+292	ABL1-BCR|exon_10-exon_23	2770	76283904
+293	ABL1-BCR|exon_10-exon_3	270	76546048
+294	ABL1-BCR|exon_10-exon_4	351	76808192
+295	ABL1-BCR|exon_10-exon_5	273	77070336
+296	ABL1-BCR|exon_10-exon_6	226	77332480
+297	ABL1-BCR|exon_10-exon_7	218	77594624
+298	ABL1-BCR|exon_10-exon_8	306	77856768
+299	ABL1-BCR|exon_10-exon_9	287	78118912
+300	ABL1-BCR|exon_11-exon_1	3745	78381056
+301	ABL1-BCR|exon_11-exon_10	1884	78643200
+302	ABL1-BCR|exon_11-exon_11	1835	78905344
+303	ABL1-BCR|exon_11-exon_12	1791	79167488
+304	ABL1-BCR|exon_11-exon_13	1820	79429632
+305	ABL1-BCR|exon_11-exon_14	1790	79691776
+306	ABL1-BCR|exon_11-exon_15	1813	79953920
+307	ABL1-BCR|exon_11-exon_16	1847	80216064
+308	ABL1-BCR|exon_11-exon_17	1775	80478208
+309	ABL1-BCR|exon_11-exon_18	1825	80740352
+310	ABL1-BCR|exon_11-exon_19	1855	81002496
+311	ABL1-BCR|exon_11-exon_2	1897	81264640
+312	ABL1-BCR|exon_11-exon_20	1850	81526784
+313	ABL1-BCR|exon_11-exon_21	1821	81788928
+314	ABL1-BCR|exon_11-exon_22	1878	82051072
+315	ABL1-BCR|exon_11-exon_23	4320	82313216
+316	ABL1-BCR|exon_11-exon_3	1820	82575360
+317	ABL1-BCR|exon_11-exon_4	1901	82837504
+318	ABL1-BCR|exon_11-exon_5	1823	83099648
+319	ABL1-BCR|exon_11-exon_6	1776	83361792
+320	ABL1-BCR|exon_11-exon_7	1768	83623936
+321	ABL1-BCR|exon_11-exon_8	1856	83886080
+322	ABL1-BCR|exon_11-exon_9	1837	84148224
+323	ABL1-BCR|exon_2-exon_1	2204	84410368
+324	ABL1-BCR|exon_2-exon_10	343	84672512
+325	ABL1-BCR|exon_2-exon_11	294	84934656
+326	ABL1-BCR|exon_2-exon_12	250	85196800
+327	ABL1-BCR|exon_2-exon_13	279	85458944
+328	ABL1-BCR|exon_2-exon_14	249	85721088
+329	ABL1-BCR|exon_2-exon_15	272	85983232
+330	ABL1-BCR|exon_2-exon_16	306	86245376
+331	ABL1-BCR|exon_2-exon_17	234	86507520
+332	ABL1-BCR|exon_2-exon_18	284	86769664
+333	ABL1-BCR|exon_2-exon_19	314	87031808
+334	ABL1-BCR|exon_2-exon_2	356	87293952
+335	ABL1-BCR|exon_2-exon_20	309	87556096
+336	ABL1-BCR|exon_2-exon_21	280	87818240
+337	ABL1-BCR|exon_2-exon_22	337	88080384
+338	ABL1-BCR|exon_2-exon_23	2779	88342528
+339	ABL1-BCR|exon_2-exon_3	279	88604672
+340	ABL1-BCR|exon_2-exon_4	360	88866816
+341	ABL1-BCR|exon_2-exon_5	282	89128960
+342	ABL1-BCR|exon_2-exon_6	235	89391104
+343	ABL1-BCR|exon_2-exon_7	227	89653248
+344	ABL1-BCR|exon_2-exon_8	315	89915392
+345	ABL1-BCR|exon_2-exon_9	296	90177536
+346	ABL1-BCR|exon_3-exon_1	2326	90439680
+347	ABL1-BCR|exon_3-exon_10	465	90701824
+348	ABL1-BCR|exon_3-exon_11	416	90963968
+349	ABL1-BCR|exon_3-exon_12	372	91226112
+350	ABL1-BCR|exon_3-exon_13	401	91488256
+351	ABL1-BCR|exon_3-exon_14	371	91750400
+352	ABL1-BCR|exon_3-exon_15	394	92012544
+353	ABL1-BCR|exon_3-exon_16	428	92274688
+354	ABL1-BCR|exon_3-exon_17	356	92536832
+355	ABL1-BCR|exon_3-exon_18	406	92798976
+356	ABL1-BCR|exon_3-exon_19	436	93061120
+357	ABL1-BCR|exon_3-exon_2	478	93323264
+358	ABL1-BCR|exon_3-exon_20	431	93585408
+359	ABL1-BCR|exon_3-exon_21	402	93847552
+360	ABL1-BCR|exon_3-exon_22	459	94109696
+361	ABL1-BCR|exon_3-exon_23	2901	94371840
+362	ABL1-BCR|exon_3-exon_3	401	94633984
+363	ABL1-BCR|exon_3-exon_4	482	94896128
+364	ABL1-BCR|exon_3-exon_5	404	95158272
+365	ABL1-BCR|exon_3-exon_6	357	95420416
+366	ABL1-BCR|exon_3-exon_7	349	95682560
+367	ABL1-BCR|exon_3-exon_8	437	95944704
+368	ABL1-BCR|exon_3-exon_9	418	96206848
+369	ABL1-BCR|exon_4-exon_1	2303	96468992
+370	ABL1-BCR|exon_4-exon_10	442	96731136
+371	ABL1-BCR|exon_4-exon_11	393	96993280
+372	ABL1-BCR|exon_4-exon_12	349	97255424
+373	ABL1-BCR|exon_4-exon_13	378	97517568
+374	ABL1-BCR|exon_4-exon_14	348	97779712
+375	ABL1-BCR|exon_4-exon_15	371	98041856
+376	ABL1-BCR|exon_4-exon_16	405	98304000
+377	ABL1-BCR|exon_4-exon_17	333	98566144
+378	ABL1-BCR|exon_4-exon_18	383	98828288
+379	ABL1-BCR|exon_4-exon_19	413	99090432
+380	ABL1-BCR|exon_4-exon_2	455	99352576
+381	ABL1-BCR|exon_4-exon_20	408	99614720
+382	ABL1-BCR|exon_4-exon_21	379	99876864
+383	ABL1-BCR|exon_4-exon_22	436	100139008
+384	ABL1-BCR|exon_4-exon_23	2878	100401152
+385	ABL1-BCR|exon_4-exon_3	378	100663296
+386	ABL1-BCR|exon_4-exon_4	459	100925440
+387	ABL1-BCR|exon_4-exon_5	381	101187584
+388	ABL1-BCR|exon_4-exon_6	334	101449728
+389	ABL1-BCR|exon_4-exon_7	326	101711872
+390	ABL1-BCR|exon_4-exon_8	414	101974016
+391	ABL1-BCR|exon_4-exon_9	395	102236160
+392	ABL1-BCR|exon_5-exon_1	2115	102498304
+393	ABL1-BCR|exon_5-exon_10	254	102760448
+394	ABL1-BCR|exon_5-exon_11	205	103022592
+395	ABL1-BCR|exon_5-exon_12	161	103284736
+396	ABL1-BCR|exon_5-exon_13	190	103546880
+397	ABL1-BCR|exon_5-exon_14	160	103809024
+398	ABL1-BCR|exon_5-exon_15	183	104071168
+399	ABL1-BCR|exon_5-exon_16	217	104333312
+400	ABL1-BCR|exon_5-exon_17	145	104595456
+401	ABL1-BCR|exon_5-exon_18	195	104857600
+402	ABL1-BCR|exon_5-exon_19	225	105119744
+403	ABL1-BCR|exon_5-exon_2	267	105381888
+404	ABL1-BCR|exon_5-exon_20	220	105644032
+405	ABL1-BCR|exon_5-exon_21	191	105906176
+406	ABL1-BCR|exon_5-exon_22	248	106168320
+407	ABL1-BCR|exon_5-exon_23	2690	106430464
+408	ABL1-BCR|exon_5-exon_3	190	106692608
+409	ABL1-BCR|exon_5-exon_4	271	106954752
+410	ABL1-BCR|exon_5-exon_5	193	107216896
+411	ABL1-BCR|exon_5-exon_6	146	107479040
+412	ABL1-BCR|exon_5-exon_7	138	107741184
+413	ABL1-BCR|exon_5-exon_8	226	108003328
+414	ABL1-BCR|exon_5-exon_9	207	108265472
+415	ABL1-BCR|exon_6-exon_1	2208	108527616
+416	ABL1-BCR|exon_6-exon_10	347	108789760
+417	ABL1-BCR|exon_6-exon_11	298	109051904
+418	ABL1-BCR|exon_6-exon_12	254	109314048
+419	ABL1-BCR|exon_6-exon_13	283	109576192
+420	ABL1-BCR|exon_6-exon_14	253	109838336
+421	ABL1-BCR|exon_6-exon_15	276	110100480
+422	ABL1-BCR|exon_6-exon_16	310	110362624
+423	ABL1-BCR|exon_6-exon_17	238	110624768
+424	ABL1-BCR|exon_6-exon_18	288	110886912
+425	ABL1-BCR|exon_6-exon_19	318	111149056
+426	ABL1-BCR|exon_6-exon_2	360	111411200
+427	ABL1-BCR|exon_6-exon_20	313	111673344
+428	ABL1-BCR|exon_6-exon_21	284	111935488
+429	ABL1-BCR|exon_6-exon_22	341	112197632
+430	ABL1-BCR|exon_6-exon_23	2783	112459776
+431	ABL1-BCR|exon_6-exon_3	283	112721920
+432	ABL1-BCR|exon_6-exon_4	364	112984064
+433	ABL1-BCR|exon_6-exon_5	286	113246208
+434	ABL1-BCR|exon_6-exon_6	239	113508352
+435	ABL1-BCR|exon_6-exon_7	231	113770496
+436	ABL1-BCR|exon_6-exon_8	319	114032640
+437	ABL1-BCR|exon_6-exon_9	300	114294784
+438	ABL1-BCR|exon_7-exon_1	2215	114556928
+439	ABL1-BCR|exon_7-exon_10	354	114819072
+440	ABL1-BCR|exon_7-exon_11	305	115081216
+441	ABL1-BCR|exon_7-exon_12	261	115343360
+442	ABL1-BCR|exon_7-exon_13	290	115605504
+443	ABL1-BCR|exon_7-exon_14	260	115867648
+444	ABL1-BCR|exon_7-exon_15	283	116129792
+445	ABL1-BCR|exon_7-exon_16	317	116391936
+446	ABL1-BCR|exon_7-exon_17	245	116654080
+447	ABL1-BCR|exon_7-exon_18	295	116916224
+448	ABL1-BCR|exon_7-exon_19	325	117178368
+449	ABL1-BCR|exon_7-exon_2	367	117440512
+450	ABL1-BCR|exon_7-exon_20	320	117702656
+451	ABL1-BCR|exon_7-exon_21	291	117964800
+452	ABL1-BCR|exon_7-exon_22	348	118226944
+453	ABL1-BCR|exon_7-exon_23	2790	118489088
+454	ABL1-BCR|exon_7-exon_3	290	118751232
+455	ABL1-BCR|exon_7-exon_4	371	119013376
+456	ABL1-BCR|exon_7-exon_5	293	119275520
+457	ABL1-BCR|exon_7-exon_6	246	119537664
+458	ABL1-BCR|exon_7-exon_7	238	119799808
+459	ABL1-BCR|exon_7-exon_8	326	120061952
+460	ABL1-BCR|exon_7-exon_9	307	120324096
+461	ABL1-BCR|exon_8-exon_1	2183	120586240
+462	ABL1-BCR|exon_8-exon_10	322	120848384
+463	ABL1-BCR|exon_8-exon_11	273	121110528
+464	ABL1-BCR|exon_8-exon_12	229	121372672
+465	ABL1-BCR|exon_8-exon_13	258	121634816
+466	ABL1-BCR|exon_8-exon_14	228	121896960
+467	ABL1-BCR|exon_8-exon_15	251	122159104
+468	ABL1-BCR|exon_8-exon_16	285	122421248
+469	ABL1-BCR|exon_8-exon_17	213	122683392
+470	ABL1-BCR|exon_8-exon_18	263	122945536
+471	ABL1-BCR|exon_8-exon_19	293	123207680
+472	ABL1-BCR|exon_8-exon_2	335	123469824
+473	ABL1-BCR|exon_8-exon_20	288	123731968
+474	ABL1-BCR|exon_8-exon_21	259	123994112
+475	ABL1-BCR|exon_8-exon_22	316	124256256
+476	ABL1-BCR|exon_8-exon_23	2758	124518400
+477	ABL1-BCR|exon_8-exon_3	258	124780544
+478	ABL1-BCR|exon_8-exon_4	339	125042688
+479	ABL1-BCR|exon_8-exon_5	261	125304832
+480	ABL1-BCR|exon_8-exon_6	214	125566976
+481	ABL1-BCR|exon_8-exon_7	206	125829120
+482	ABL1-BCR|exon_8-exon_8	294	126091264
+483	ABL1-BCR|exon_8-exon_9	275	126353408
+484	ABL1-BCR|exon_9-exon_1	2120	126615552
+485	ABL1-BCR|exon_9-exon_10	259	126877696
+486	ABL1-BCR|exon_9-exon_11	210	127139840
+487	ABL1-BCR|exon_9-exon_12	166	127401984
+488	ABL1-BCR|exon_9-exon_13	195	127664128
+489	ABL1-BCR|exon_9-exon_14	165	127926272
+490	ABL1-BCR|exon_9-exon_15	188	128188416
+491	ABL1-BCR|exon_9-exon_16	222	128450560
+492	ABL1-BCR|exon_9-exon_17	150	128712704
+493	ABL1-BCR|exon_9-exon_18	200	128974848
+494	ABL1-BCR|exon_9-exon_19	230	129236992
+495	ABL1-BCR|exon_9-exon_2	272	129499136
+496	ABL1-BCR|exon_9-exon_20	225	129761280
+497	ABL1-BCR|exon_9-exon_21	196	130023424
+498	ABL1-BCR|exon_9-exon_22	253	130285568
+499	ABL1-BCR|exon_9-exon_23	2695	130547712
+500	ABL1-BCR|exon_9-exon_3	195	130809856
+501	ABL1-BCR|exon_9-exon_4	276	131072000
+502	ABL1-BCR|exon_9-exon_5	198	131334144
+503	ABL1-BCR|exon_9-exon_6	151	131596288
+504	ABL1-BCR|exon_9-exon_7	143	131858432
+505	ABL1-BCR|exon_9-exon_8	231	132120576
+506	ABL1-BCR|exon_9-exon_9	212	132382720
+Started loading the genome: Thu Sep 29 15:12:39 2022
+
+Genome: size given as a parameter = 132644864
+SA: size given as a parameter = 2736594
+SAindex: size given as a parameter = 1
+Read from SAindex: pGe.gSAindexNbases=10  nSAi=1398100
+nGenome=132644864;  nSAbyte=2736594
+GstrandBit=32   SA number of indices=663416
+Shared memory is not used for genomes. Allocated a private copy of the genome.
+Genome file size: 132644864 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading Genome ... done! state: good=1 eof=0 fail=0 bad=0; loaded 132644864 bytes
+SA file size: 2736594 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading SA ... done! state: good=1 eof=0 fail=0 bad=0; loaded 2736594 bytes
+Loading SAindex ... done: 6116787 bytes
+Finished loading the genome: Thu Sep 29 15:12:39 2022
+
+alignIntronMax=alignMatesGapMax=0, the max intron size will be approximately determined by (2^winBinNbits)*winAnchorDistNbins=589824
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread0 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread1 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread2 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread3 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread4 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread5 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread6 ... ok
+Opening the file: ./_STARtmp//Unmapped.out.mate1.thread7 ... ok
+Created thread # 1
+Created thread # 2
+Created thread # 3
+Created thread # 4
+Starting to map file # 0
+mate 1:   /data/reads/sample1_SE.fq.gz
+Created thread # 5
+Created thread # 6
+Created thread # 7
+Thread #1 end of input stream, nextChar=-1
+Completed: thread #2
+Completed: thread #3
+Completed: thread #0
+Completed: thread #4
+Completed: thread #5
+Completed: thread #6
+Completed: thread #7
+BAM sorting: 18 mapped reads
+BAM sorting bins genomic start loci:
+1	48	27
+2	48	27
+3	48	27
+4	48	27
+5	48	27
+6	48	27
+7	48	27
+8	48	27
+9	48	27
+10	48	27
+11	48	27
+12	48	27
+13	48	27
+14	48	27
+15	48	27
+16	48	27
+17	48	27
+18	48	27
+19	48	27
+20	48	27
+21	48	27
+22	48	27
+23	48	27
+24	48	27
+25	48	27
+26	48	27
+27	48	27
+28	48	27
+29	48	27
+30	48	27
+31	48	27
+32	48	27
+33	48	27
+34	48	27
+35	48	27
+36	48	27
+37	48	27
+38	48	27
+39	48	27
+40	48	27
+41	48	27
+42	48	27
+43	48	27
+44	48	27
+45	48	27
+46	48	27
+47	48	27
+48	48	27
+Completed: thread #1
+Joined thread # 1
+Joined thread # 2
+Joined thread # 3
+Joined thread # 4
+Joined thread # 5
+Joined thread # 6
+Joined thread # 7
+Sep 29 15:12:41 ..... started sorting BAM
+Max memory needed for sorting = 5186
+ALL DONE!

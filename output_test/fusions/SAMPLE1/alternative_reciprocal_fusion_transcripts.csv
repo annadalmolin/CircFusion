@@ -1,0 +1,3 @@
+gene_5,gene_3,reciprocal_breakpoint_5,reciprocal_breakpoint_3,exon_brp_5,exon_brp_3,alternative_reciprocal_breakpoint_5,alternative_reciprocal_breakpoint_3,alternative_exon_brp_5,alternative_exon_brp_3,num_reads
+ABL1,BCR,chr9:130714455(+),chr22:23292541(+),1,15,chr9:130714455(+),chr22:23295024(+),1,16,2
+ABL1,BCR,chr9:130714455(+),chr22:23292541(+),1,15,chr9:130714455(+),chr22:23309424(+),1,17,2
