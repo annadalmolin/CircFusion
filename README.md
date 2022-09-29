@@ -197,3 +197,31 @@ Each subdirectory contains:
   - keep the _reference/_ directory if you want to search for the same fused gene pair
   - remove or rename the _fusion/_ directory
   - remove or rename the _graphical_output/_ directory
+
+
+## Test CircFusion
+
+To test CircFusion functionality with a toy example, please follow these instructions:
+
+- pull CircFusion docker image with the command:
+
+        docker pull annadalmolin/circfusion:v1.0
+    
+- download the _test_ directory from GitHub
+
+- enter in the _annotation_ directory with:
+
+        cd test/annotation
+    
+- download in _annotation_ the annotation and genome files for Homo sapiens (GRCh38) from Ensembl (http://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/ for the annotation file, and http://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/dna/ for the genome file)
+
+- come back to the _test_ directory:
+
+        cd ..
+        
+- run CircFusion docker from the _test_ directory:
+    
+        sudo docker run -it -v $(pwd):/data annadalmolin/circfusion:v1.0
+
+If everything worked successfully, you will find the following new directories in _test_: _reference_, _fusions_ and _graphical_output_.
+The content of these output directories should correspond to that included in the _output_test_ directory in GitHub.
