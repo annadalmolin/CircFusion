@@ -1,0 +1,3 @@
+direct_breakpoint mapping_breakpoint map_brp_junction_start map_brp_junction_end exon_map_brp_5p exon_map_brp_3p read_start read_end read_name n_mismatch library_strand mapping_length nt_left_overlap nt_right_overlap
+exon_14(+)-exon_2(+)	exon_3-exon_9	295	297	3	9	202	349	Truseq_fcircular__BCR_14_ABL1_2__A3_B9__0	0	+	147	94	53
+exon_14(+)-exon_2(+)	exon_3-exon_9	295	297	3	9	219	366	Truseq_fcircular__BCR_14_ABL1_2__A3_B9__1	0	+	147	77	70
