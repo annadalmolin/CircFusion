@@ -1,3 +1,0 @@
-Number_of_fusion_transcript_reads	4
-Number_of_alternative_fusion_transcript_reads	2
-Number_of_fusion_circRNA_reads	2

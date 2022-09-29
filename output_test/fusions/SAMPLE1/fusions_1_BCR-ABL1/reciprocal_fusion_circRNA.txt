@@ -1,2 +1,0 @@
-gene_brp_5	gene_brp_3	reciprocal_breakpoint_5	reciprocal_breakpoint_3	exon_brp_5	exon_brp_3	gene_bks_5	gene_bks_3	circular_backsplice_5	circular_backsplice_3	circular_exon_5	circular_exon_3	num_reads
-ABL1	BCR	chr9:130714455(+)	chr22:23292541(+)	1	15	BCR	ABL1	chr22:23295155(+)	chr9:130713946(+)	16	1	2

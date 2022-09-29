@@ -1,8 +1,0 @@
-exon_13-exon_3	104	106	exon_13-exon_3	27	182	Truseq_flinearsplic__BCR_14_ABL1_2__B13_A3__0	0	+	155	78	77	77
-exon_13-exon_3	104	106	exon_13-exon_3	37	192	Truseq_flinearsplic__BCR_14_ABL1_2__B13_A3__1	0	+	155	68	87	68
-exon_14-exon_2	74	76	exon_14-exon_2	0	168	Truseq_flinear__BCR_14_ABL1_2__B14_A2__0	0	+	168	75	93	75
-exon_14-exon_2	74	76	exon_14-exon_2	5	173	Truseq_flinear__BCR_14_ABL1_2__B14_A2__1	0	+	168	70	98	70
-exon_14-exon_2	74	76	exon_14-exon_2	10	178	Truseq_flinear__BCR_14_ABL1_2__B14_A2__2	0	+	168	65	103	65
-exon_14-exon_2	74	76	exon_14-exon_2	15	183	Truseq_flinear__BCR_14_ABL1_2__B14_A2__3	0	+	168	60	108	60
-exon_16-exon_1	131	133	exon_16-exon_1	80	180	Truseq_fcircular__ABL1_1_BCR_15__B16_A1__1	0	+	100	52	48	48
-exon_16-exon_1	131	133	exon_16-exon_1	91	191	Truseq_fcircular__ABL1_1_BCR_15__B16_A1__0	0	+	100	41	59	41

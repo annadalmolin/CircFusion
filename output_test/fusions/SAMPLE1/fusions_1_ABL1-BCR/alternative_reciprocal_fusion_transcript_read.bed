@@ -1,5 +1,0 @@
-reciprocal_breakpoint mapping_breakpoint map_brp_junction_start map_brp_junction_end exon_map_brp_5p exon_map_brp_3p read_start read_end read_name n_mismatch library_strand mapping_length nt_left_overlap nt_right_overlap
-exon_1(+)-exon_15(+)	exon_1-exon_16	509	511	1	16	430	575	Truseq_flinearsplic__ABL1_1_BCR_15__A1_B16__0	0	+	145	80	65
-exon_1(+)-exon_15(+)	exon_1-exon_16	509	511	1	16	441	586	Truseq_flinearsplic__ABL1_1_BCR_15__A1_B16__1	0	+	145	69	76
-exon_1(+)-exon_15(+)	exon_1-exon_17	509	511	1	17	401	538	Truseq_flinearsplic__ABL1_1_BCR_15__A1_B17__0	0	+	137	109	28
-exon_1(+)-exon_15(+)	exon_1-exon_17	509	511	1	17	420	557	Truseq_flinearsplic__ABL1_1_BCR_15__A1_B17__1	0	+	137	90	47
