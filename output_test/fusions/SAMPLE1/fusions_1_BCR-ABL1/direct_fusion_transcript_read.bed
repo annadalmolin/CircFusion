@@ -1,0 +1,5 @@
+direct_breakpoint	mapping_breakpoint	map_brp_junction_start	map_brp_junction_end	exon_map_brp_5p	exon_map_brp_3p	read_start	read_end	read_name	n_mismatch	library_strand	mapping_length	nt_left_overlap	nt_right_overlap
+exon_14-exon_2	exon_14-exon_2	74	76	14	2	0	168	Truseq_flinear__BCR_14_ABL1_2__B14_A2__0	0	+	168	75	93
+exon_14-exon_2	exon_14-exon_2	74	76	14	2	5	173	Truseq_flinear__BCR_14_ABL1_2__B14_A2__1	0	+	168	70	98
+exon_14-exon_2	exon_14-exon_2	74	76	14	2	10	178	Truseq_flinear__BCR_14_ABL1_2__B14_A2__2	0	+	168	65	103
+exon_14-exon_2	exon_14-exon_2	74	76	14	2	15	183	Truseq_flinear__BCR_14_ABL1_2__B14_A2__3	0	+	168	60	108
