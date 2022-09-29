@@ -62,7 +62,7 @@ Prepare your project directory with the following files:
       /data/annotation/Homo_sapiens.GRCh38.104.gtf
       /data/annotation/Homo_sapiens.GRCh38.dna.primary_assembly.fa
 
-  The gene annotation (in GTF format) and the genome sequence (in FASTA format) files must be downloaded by the user from the Ensembl database and placed into the _annotation_/ directory contained in the project directory. Annotation and genome files for Homo sapiens (GRCh38) can be downloaded from http://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/ and http://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/dna/, respectively.
+  The gene annotation (in GTF format) and the genome sequence (in FASTA format) files must be downloaded by the user from the Ensembl database and placed into the _annotation_/ directory contained in the project directory. Annotation and genome files for Homo sapiens (GRCh38) can be downloaded from http://ftp.ensembl.org/pub/release-N/gtf/homo_sapiens/ and http://ftp.ensembl.org/pub/release-N/fasta/homo_sapiens/dna/, respectively (replace N with the chosen release number).
 
 - _params_Star.txt_: file with the parameters used by Star embedded in CircFusion. The file format is a text file with a parameter written in each row, __in the following order__:
 
@@ -213,7 +213,10 @@ To test CircFusion functionality with a toy example, please follow these instruc
 
         cd test/annotation
     
-- download in _annotation_ the annotation and genome files for Homo sapiens (GRCh38) from Ensembl (http://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/ for the annotation file, and http://ftp.ensembl.org/pub/release-104/fasta/homo_sapiens/dna/ for the genome file)
+- download in _annotation_ the annotation and genome files for Homo sapiens (GRCh38, release 97) from Ensembl (http://ftp.ensembl.org/pub/release-97/gtf/homo_sapiens/ for the annotation file, and http://ftp.ensembl.org/pub/release-97/fasta/homo_sapiens/dna/ for the genome file), and check if the file names exactly correspond to those in _path_file.txt_. For the release 97, _path_file.txt_ should be like that:
+
+      /data/annotation/Homo_sapiens.GRCh38.97.gtf
+      /data/annotation/Homo_sapiens.GRCh38.dna.primary_assembly.fa
 
 - come back to the _test_ directory:
 
