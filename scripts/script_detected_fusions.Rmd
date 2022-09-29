@@ -1,0 +1,527 @@
+---
+title: "CircFusion result summary"
+author: "Please cite: \"Dal Molin et al. Discovery of fusion circRNAs in leukemia with KMT2A::AFF1 rearrangements by the new software CircFusion\""
+date: "`r Sys.Date()`"
+header-includes:
+    \usepackage{caption}
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+  html_document:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+  editor_options: 
+    chunk_output_type: inline
+params:
+    sample: ""
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE, dpi = 600, root.dir = "/data/.scripts/")
+
+```
+
+```{r libraries, echo=FALSE, include=FALSE}
+
+.libPaths( c( '/data/.R/lib', .libPaths()) )
+
+library(plyr)
+library(dplyr)
+library(tibble)
+library(data.table)
+library(ggplot2)
+library(RColorBrewer)
+library(viridis)
+
+# themes
+library(rmdformats)
+library(prettydoc)
+
+library(reshape2)
+library(gridExtra)
+library(lattice)
+library(BiocManager)
+
+# su "/usr/lib/R/library":
+if (!dir.exists("/data/.R/lib/grid")) {
+    BiocManager::install("grid")
+    }
+library(grid)
+
+```
+
+```{r input, echo=FALSE, include=FALSE}
+
+## Upload input files
+
+# direct fusion transcripts
+file_dir_fus_tr <- paste0("/data/fusions/", params$sample, "/direct_fusion_transcripts.txt")
+dir_fus_tr <- read.table(file_dir_fus_tr, header=T, sep="\t")
+dir_fus_tr <- as.data.table(dir_fus_tr)
+
+# reciprocal fusion transcripts
+file_rec_fus_tr <- paste0("/data/fusions/", params$sample, "/reciprocal_fusion_transcripts.txt")
+rec_fus_tr <- read.table(file_rec_fus_tr, header=T, sep="\t")
+rec_fus_tr <- as.data.table(rec_fus_tr)
+
+# alternative direct fusion transcripts
+file_alt_dir_fus_tr <- paste0("/data/fusions/", params$sample, "/alternative_direct_fusion_transcripts.txt")
+alt_dir_fus_tr <- read.table(file_alt_dir_fus_tr, header=T, sep="\t")
+alt_dir_fus_tr <- as.data.table(alt_dir_fus_tr)
+
+# alternative reciprocal fusion transcripts
+file_alt_rec_fus_tr <- paste0("/data/fusions/", params$sample, "/alternative_reciprocal_fusion_transcripts.txt")
+alt_rec_fus_tr <- read.table(file_alt_rec_fus_tr, header=T, sep="\t")
+alt_rec_fus_tr <- as.data.table(alt_rec_fus_tr)
+
+# reciprocal fusion circRNAs
+file_rec_fus_circ <- paste0("/data/fusions/", params$sample, "/reciprocal_fusion_circRNAs.txt")
+rec_fus_circ <- read.table(file_rec_fus_circ, header=T, sep="\t")
+rec_fus_circ <- as.data.table(rec_fus_circ)
+
+# direct fusion circRNAs
+file_dir_fus_circ <- paste0("/data/fusions/", params$sample, "/direct_fusion_circRNAs.txt")
+dir_fus_circ <- read.table(file_dir_fus_circ, header=T, sep="\t")
+dir_fus_circ <- as.data.table(dir_fus_circ)
+
+```
+
+```{r output, echo=FALSE, include=FALSE}
+
+output_dir <- paste0("/data/graphical_output/", params$sample, "/")
+
+```
+
+```{r, echo=FALSE, include=TRUE}
+
+htmltools::img(src = knitr::image_uri("/input/CircFusion_logo.png"), 
+               alt = 'logo', 
+               style = 'position:absolute; top: 350px; right: 530px; padding:12px; height:230px; width:230px')
+
+```
+
+
+
+# Detected fusions
+
+## Fusion transcripts
+
+```{r pre_barplot_dir_fus_tr, echo=FALSE, include=TRUE}
+
+if (dir_fus_tr[, .N] > 0) {
+    
+    dir_fus_tr$gene_pair <- paste0(dir_fus_tr$gene_5, "-", dir_fus_tr$gene_3)
+    dir_fus_tr$gene_pair_exon <- paste0(dir_fus_tr$gene_5, "-", dir_fus_tr$gene_3, "(", dir_fus_tr$exon_brp_5, "-", dir_fus_tr$exon_brp_3, ")")
+    
+    w1 <- dim(dir_fus_tr)[1]
+    
+    if (w1 < 7) {
+        w1 <- 6
+    }
+
+} else {
+    
+    w1 <- 6
+    
+}
+
+```
+
+```{r barplot_dir_fus_tr, echo=FALSE, include=TRUE, fig.width=w1, fig.height=5}
+
+# barplot of direct fusion transcripts detected for each translocation
+
+if (dir_fus_tr[, .N] > 0) {
+
+    bar_plot1 <- ggplot(dir_fus_tr,
+                       aes(x = gene_pair_exon, y = num_reads , fill = gene_pair)
+                      ) +
+                geom_bar(stat = "identity", position=position_dodge()) +
+                scale_fill_viridis(discrete = T, option = "C") + 
+                xlab("Translocation") +
+                ylab("Number of reads") +
+                ggtitle("Supporting reads for the direct translocation") +
+                theme_bw() +
+                theme(plot.title = element_text(hjust = 0.5),
+                      text = element_text(size=12),
+                      axis.text.x = element_text(angle=90, vjust=0.5),
+                      legend.position = "none")
+
+}
+
+```
+
+```{r pre_barplot_rec_fus_tr, echo=FALSE, include=TRUE}
+
+if (rec_fus_tr[, .N] > 0) {
+    
+    rec_fus_tr$gene_pair <- paste0(rec_fus_tr$gene_5, "-", rec_fus_tr$gene_3)
+    rec_fus_tr$gene_pair_exon <- paste0(rec_fus_tr$gene_5, "-", rec_fus_tr$gene_3, "(", rec_fus_tr$exon_brp_5, "-", rec_fus_tr$exon_brp_3, ")")
+    
+    w2 <- dim(rec_fus_tr)[1]
+    
+    if (w2 < 7) {
+        w2 <- 6
+    }
+
+} else {
+    
+    w2 <- 6
+    
+}
+
+```
+
+```{r barplot_rec_fus_tr, echo=FALSE, include=TRUE, fig.width=w2, fig.height=5}
+
+# barplot of reciprocal fusion transcripts detected for each translocation
+
+if (rec_fus_tr[, .N] > 0) {
+
+    bar_plot2 <- ggplot(rec_fus_tr,
+                       aes(x = gene_pair_exon, y = num_reads , fill = gene_pair)
+                      ) +
+                geom_bar(stat = "identity", position=position_dodge()) +
+                scale_fill_viridis(discrete = T, option = "C" , direction = -1) +
+                xlab("Translocation") +
+                ylab("Number of reads") +
+                ggtitle("Supporting reads for the reciprocal translocation") +
+                theme_bw() +
+                theme(plot.title = element_text(hjust = 0.5),
+                      text = element_text(size=12),
+                      axis.text.x = element_text(angle=90, vjust=0.5),
+                      legend.position = "none")
+
+}
+
+```
+
+```{r, echo=FALSE, include=TRUE, fig.width=10, fig.height=6}
+
+print_1 <- ""
+
+if ( (dir_fus_tr[, .N] > 0) & (rec_fus_tr[, .N] > 0)) {
+    
+    grid.arrange(bar_plot1, bar_plot2, ncol=2)
+    
+    # Save at png
+    ggsave(bar_plot1, file=paste0(output_dir, "direct_fusion_transcripts.png"), width=w1, height=5, dpi = 600)
+    ggsave(bar_plot2, file=paste0(output_dir, "reciprocal_fusion_transcripts.png"), width=w2, height=5, dpi = 600)
+
+} else {
+    
+    if (dir_fus_tr[, .N] > 0) {
+        
+        print(bar_plot1)
+        
+        ggsave(bar_plot1, file=paste0(output_dir, "direct_fusion_transcripts.png"), width=w1, height=5, dpi = 600)
+        
+    } else {
+        
+        if (rec_fus_tr[, .N] > 0) {
+            
+            print(bar_plot2)
+            
+            ggsave(bar_plot2, file=paste0(output_dir, "reciprocal_fusion_transcripts.png"), width=w2, height=5, dpi = 600)
+            
+        } else {
+            
+            print_1 <- "No fusion transcripts detected."
+            
+        }
+        
+    }
+    
+}
+
+```
+
+`r print_1`
+
+
+
+## Alternative fusion transcripts
+
+```{r pre_dotplot_alt_dir_fus_tr, echo=FALSE, include=TRUE}
+
+if (alt_dir_fus_tr[, .N] > 0) {
+
+    alt_dir_fus_tr$gene_pair <- paste0(alt_dir_fus_tr$gene_5, "-", alt_dir_fus_tr$gene_3)
+    alt_dir_fus_tr$gene_pair_exon <- paste0(alt_dir_fus_tr$gene_5, "-", alt_dir_fus_tr$gene_3, "(", alt_dir_fus_tr$exon_brp_5, "-", alt_dir_fus_tr$exon_brp_3, ")")
+    alt_dir_fus_tr$gene_pair_alt <- paste0(alt_dir_fus_tr$gene_5, "-", alt_dir_fus_tr$gene_3, "(", alt_dir_fus_tr$alternative_exon_brp_5, "-", alt_dir_fus_tr$alternative_exon_brp_3, ")")
+    colnames(alt_dir_fus_tr)[11] <- "Number of reads"
+    
+    w3 <- dim(alt_dir_fus_tr)[1]
+
+    if (w3 < 7) {
+        w3 <- 6
+    }
+
+} else {
+    
+    w3 <- 6
+    
+}
+
+```
+
+```{r dotplot_alt_dir_fus_tr, echo=FALSE, include=TRUE, fig.width=w1+2, fig.height=w3-2}
+
+# dotplot of alternative direct fusion transcripts detected for each translocation
+
+if (alt_dir_fus_tr[, .N] > 0) {
+
+    dot_plot3 <- ggplot(alt_dir_fus_tr) +
+                    geom_point(aes(x = gene_pair_exon, y = gene_pair_alt, size = `Number of reads`, color = gene_pair), shape = 15) +
+                    scale_color_viridis(discrete = T, option = "C", guide = "none") + 
+                    scale_size_area() + 
+                    xlab("Translocation") +
+                    ylab("Alternative translocation") +
+                    ggtitle("Supporting reads for the alternative direct translocation") +
+                    theme_bw() +
+                    theme(plot.title = element_text(hjust = 0.5, size=11),
+                          axis.title = element_text(size=12),
+                          axis.text.x = element_text(angle=90, vjust=0.5),
+                          axis.text = element_text(size=12),
+                          legend.position = "bottom"
+                          )
+
+}
+
+```
+
+```{r pre_dotplot_alt_rec_fus_tr, echo=FALSE, include=TRUE}
+
+if (alt_rec_fus_tr[, .N] > 0) {
+
+    alt_rec_fus_tr$gene_pair <- paste0(alt_rec_fus_tr$gene_5, "-", alt_rec_fus_tr$gene_3)
+    alt_rec_fus_tr$gene_pair_exon <- paste0(alt_rec_fus_tr$gene_5, "-", alt_rec_fus_tr$gene_3, "(", alt_rec_fus_tr$exon_brp_5, "-", alt_rec_fus_tr$exon_brp_3, ")")
+    alt_rec_fus_tr$gene_pair_alt <- paste0(alt_rec_fus_tr$gene_5, "-", alt_rec_fus_tr$gene_3, "(", alt_rec_fus_tr$alternative_exon_brp_5, "-", alt_rec_fus_tr$alternative_exon_brp_3, ")")
+    colnames(alt_rec_fus_tr)[11] <- "Number of reads"
+    
+    w4 <- dim(alt_rec_fus_tr)[1]
+    
+    if (w4 < 7) {
+        w4 <- 6
+    }
+
+} else {
+    
+    w4 <- 6
+    
+}
+
+```
+
+```{r dotplot_alt_rec_fus_tr, echo=FALSE, include=TRUE, fig.width=w2+2, fig.height=w4-2}
+
+# dotplot of alternative reciprocal fusion transcripts detected for each translocation
+
+if (alt_rec_fus_tr[, .N] > 0) {
+
+    dot_plot4 <- ggplot(alt_rec_fus_tr) +
+                    geom_point(aes(x = gene_pair_exon, y = gene_pair_alt, size = `Number of reads`, color = gene_pair), shape = 15) +
+                    scale_color_viridis(discrete = T, direction = -1, option = "C", guide = "none") + 
+                    scale_size_area() + 
+                    xlab("Translocation") +
+                    ylab("Alternative translocation") +
+                    ggtitle("Supporting reads for the alternative reciprocal translocation") +
+                    theme_bw() +
+                    theme(plot.title = element_text(hjust = 0.5, size=11),
+                          axis.title = element_text(size=12),
+                          axis.text.x = element_text(angle=90, vjust=0.5),
+                          axis.text = element_text(size=12),
+                          legend.position = "bottom"
+                          )
+
+}
+
+```
+
+```{r, echo=FALSE, include=TRUE, fig.width=10, fig.height=6}
+
+print_2 <- ""
+
+if ( (alt_dir_fus_tr[, .N] > 0) & (alt_rec_fus_tr[, .N] > 0)) {
+    
+    grid.arrange(dot_plot3, dot_plot4, ncol=2)
+    
+    ggsave(dot_plot3, file=paste0(output_dir, "alternative_direct_fusion_transcripts.png"), width=w1+2, height=w3-2, dpi = 600)
+    ggsave(dot_plot4, file=paste0(output_dir, "alternative_reciprocal_fusion_transcripts.png"), width=w2+2, height=w4-2, dpi = 600)
+
+} else {
+    
+    if (alt_dir_fus_tr[, .N] > 0) {
+        
+        print(dot_plot3)
+        
+        ggsave(dot_plot3, file=paste0(output_dir, "alternative_direct_fusion_transcripts.png"), width=w1+2, height=w3-2, dpi = 600)
+        
+    } else {
+        
+        if (alt_rec_fus_tr[, .N] > 0) {
+            
+            print(dot_plot4)
+            
+            ggsave(dot_plot4, file=paste0(output_dir, "alternative_reciprocal_fusion_transcripts.png"), width=w2+2, height=w4-2, dpi = 600)
+            
+        } else {
+            
+             print_2 <- "No alternative fusion transcripts detected."
+             
+        }
+        
+    }
+    
+}
+
+```
+
+`r print_2`
+
+
+
+## F-circRNAs
+
+```{r pre_dotplot_dir_fus_circ, echo=FALSE, include=TRUE}
+
+if (dir_fus_circ[, .N] > 0) {
+    
+    dir_fus_circ$gene_pair <- paste0(dir_fus_circ$gene_brp_5, "-", dir_fus_circ$gene_brp_3)
+    dir_fus_circ$gene_pair_exon <- paste0(dir_fus_circ$gene_brp_5, "-", dir_fus_circ$gene_brp_3, "(", dir_fus_circ$exon_brp_5, "-", dir_fus_circ$exon_brp_3, ")")
+    dir_fus_circ$gene_pair_circ <- paste0(dir_fus_circ$gene_bks_5, "-", dir_fus_circ$gene_bks_3, "(", dir_fus_circ$circular_exon_5, "-", dir_fus_circ$circular_exon_3, ")")
+    colnames(dir_fus_circ)[13] <- "Number of reads"
+    
+    w5 <- dim(dir_fus_circ)[1]
+    
+    if (w5 < 7) {
+        w5 <- 6
+    }
+
+} else {
+    
+    w5 <- 6
+        
+}
+
+```
+
+```{r dotplot_dir_fus_circ, echo=FALSE, include=TRUE, fig.width=w1+2, fig.height=w5-2}
+
+# dotplot of direct fusion circRNAs detected for each translocation
+
+if (dir_fus_circ[, .N] > 0) {
+    
+    dot_plot5 <- ggplot(dir_fus_circ) +
+                    geom_point(aes(x = gene_pair_exon, y = gene_pair_circ, size = `Number of reads`, color = gene_pair)) +
+                    scale_color_viridis(discrete = T, option = "C", guide = "none") + 
+                    scale_size_area() + 
+                    xlab("Translocation") +
+                    ylab("F-circRNA") +
+                    ggtitle("Supporting reads for direct f-circRNAs") +
+                    theme_bw() +
+                    theme(plot.title = element_text(hjust = 0.5, size=12),
+                          axis.title = element_text(size=12),
+                          axis.text.x = element_text(angle=90, vjust=0.5),
+                          axis.text = element_text(size=12),
+                          legend.position = "bottom"
+                          )
+
+}
+
+```
+
+```{r pre_dotplot_rec_fus_circ, echo=FALSE, include=TRUE}
+
+if (rec_fus_circ[, .N] > 0) {
+    
+    rec_fus_circ$gene_pair <- paste0(rec_fus_circ$gene_brp_5, "-", rec_fus_circ$gene_brp_3)
+    rec_fus_circ$gene_pair_exon <- paste0(rec_fus_circ$gene_brp_5, "-", rec_fus_circ$gene_brp_3, "(", rec_fus_circ$exon_brp_5, "-", rec_fus_circ$exon_brp_3, ")")
+    rec_fus_circ$gene_pair_circ <- paste0(rec_fus_circ$gene_bks_5, "-", rec_fus_circ$gene_bks_3, "(", rec_fus_circ$circular_exon_5, "-", rec_fus_circ$circular_exon_3, ")")
+    colnames(rec_fus_circ)[13] <- "Number of reads"
+    
+    w6 <- dim(rec_fus_circ)[1]
+    
+    if (w6 < 7) {
+        w6 <- 6
+    }
+
+} else {
+    
+    w6 <- 6
+    
+}
+
+```
+
+```{r dotplot_rec_fus_circ, echo=FALSE, include=TRUE, fig.width=w2+2, fig.height=w6-2}
+
+# dotplot of reciprocal fusion circRNAs detected for each translocation
+
+if (rec_fus_circ[, .N] > 0) {
+    
+    dot_plot6 <- ggplot(rec_fus_circ) +
+                    geom_point(aes(x = gene_pair_exon, y = gene_pair_circ, size = `Number of reads`, color = gene_pair)) +
+                    scale_color_viridis(discrete = T, direction = -1, option = "C", guide = "none") + 
+                    scale_size_area() + 
+                    xlab("Translocation") +
+                    ylab("F-circRNA") +
+                    ggtitle("Supporting reads for reciprocal f-circRNAs") +
+                    theme_bw() +
+                    theme(plot.title = element_text(hjust = 0.5, size=12),
+                          axis.title = element_text(size=12),
+                          axis.text.x = element_text(angle=90, vjust=0.5),
+                          axis.text = element_text(size=12),
+                          legend.position = "bottom"
+                          )
+
+}
+
+```
+
+```{r, echo=FALSE, include=TRUE, fig.width=10, fig.height=6}
+
+print_3 <- ""
+
+if ( (dir_fus_circ[, .N] > 0) & (rec_fus_circ[, .N] > 0)) {
+    
+    grid.arrange(dot_plot5, dot_plot6, ncol=2)
+    
+    ggsave(dot_plot5, file=paste0(output_dir, "direct_fusion_circRNAs.png"), width=w1+2, height=w5-2, dpi = 600)
+    ggsave(dot_plot6, file=paste0(output_dir, "reciprocal_fusion_circRNAs.png"), width=w2+2, height=w6-2, dpi = 600)
+
+} else {
+    
+    if (dir_fus_circ[, .N] > 0) {
+        
+        print(dot_plot5)
+        
+        ggsave(dot_plot5, file=paste0(output_dir, "direct_fusion_circRNAs.png"), width=w1+2, height=w5-2, dpi = 600)
+        
+    } else {
+        
+        if (rec_fus_circ[, .N] > 0) {
+            
+            print(dot_plot6)
+            
+            ggsave(dot_plot6, file=paste0(output_dir, "reciprocal_fusion_circRNAs.png"), width=w2+2, height=w6-2, dpi = 600)
+            
+        } else {
+            
+            print_3 <- "No fusion circRNAs detected."
+            
+        }
+        
+    }
+    
+}
+
+```
+
+`r print_3`
