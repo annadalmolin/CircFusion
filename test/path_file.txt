@@ -1,0 +1,2 @@
+/data/annotation/Homo_sapiens.GRCh38.97.gtf
+/data/annotation/Homo_sapiens.GRCh38.dna.primary_assembly.fa
