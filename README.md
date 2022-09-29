@@ -209,9 +209,17 @@ To test CircFusion functionality with a toy example, please follow these instruc
     
 - download the _test_ directory from GitHub
 
-- enter in the _annotation_ directory with:
+- enter in the _test_ directory:
 
-        cd test/annotation
+        cd test
+        
+- create the _annotation_ directory:
+
+        mkdir annotation
+
+- enter in the _annotation_ directory:
+
+        cd annotation
     
 - download in _annotation_ the annotation and genome files for Homo sapiens (GRCh38, release 97) from Ensembl (http://ftp.ensembl.org/pub/release-97/gtf/homo_sapiens/ for the annotation file, and http://ftp.ensembl.org/pub/release-97/fasta/homo_sapiens/dna/ for the genome file), and check if the file names exactly correspond to those in _path_file.txt_. For the release 97, _path_file.txt_ should be like that:
 
@@ -226,5 +234,5 @@ To test CircFusion functionality with a toy example, please follow these instruc
     
         sudo docker run -it -v $(pwd):/data annadalmolin/circfusion:v1.0
 
-If everything worked successfully, you will find the following new directories in _test_: _reference_, _fusions_ and _graphical_output_.
+If everything worked properly, you will find the following new directories in _test_: _reference_, _fusions_ and _graphical_output_.
 The content of these output directories should correspond to that included in the _output_test_ directory in GitHub.
