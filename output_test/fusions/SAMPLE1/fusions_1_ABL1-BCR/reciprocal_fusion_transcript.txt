@@ -1,0 +1,2 @@
+gene_5	gene_3	reciprocal_breakpoint_5	reciprocal_breakpoint_3	exon_brp_5	exon_brp_3	num_reads
+ABL1	BCR	chr9:130714455(+)	chr22:23292541(+)	1	15	4

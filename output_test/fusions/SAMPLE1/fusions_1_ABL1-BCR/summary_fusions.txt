@@ -1,0 +1,3 @@
+Number_of_fusion_transcripts	1
+Number_of_alternative_fusion_transcripts	2
+Number_of_fusion_circRNAs	1
