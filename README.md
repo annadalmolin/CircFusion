@@ -39,7 +39,9 @@ Prepare your project directory with the following files:
       SLC34A2  ROS1      4    34   33   5     ENST00000382051    ENST00000368507
       SLC34A2  ROS1      4    32   31   5     ENST00000382051    ENST00000368507
       
-  Note: the reciprocal fusion exons are indicated in the same line of the direct fusion exons for the same gene pair, and not in a new line.
+  Notes:
+  - the reciprocal fusion exons are indicated in the same line of the direct fusion exons for the same gene pair, and not in a new line
+  - a list of known fusions from Cosmic database is provided in the file _known_fusions.txt_. Nevertheless, it is advisable to run the analysis only on the gene pair/s of interest, in order to reduce computational time
 
 - _sample_list.txt_: file with the list of samples to be analyzed. The file format is a tab-separated text file, with the sample name in the first column and the path to the RNA-seq file in the second (for single-end data) or in the second and third columns (for paired-end data). Sample order doesn’t matter.
 
