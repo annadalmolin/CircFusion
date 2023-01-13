@@ -238,3 +238,10 @@ To test CircFusion functionality with a toy example, please follow these instruc
 
 If everything worked properly, you will find the following new directories in _test_: _reference_, _fusions_ and _graphical_output_.
 The content of these output directories should correspond to that included in the _output_test_ directory in GitHub.
+
+
+## How to cite
+
+If you use CircFusion for your analysis, please add the following citation to your references:
+
+_Dal Molin A, Tretti Parenzan C, Gaffo E, Borin C, Boldrin E, Meyer LH, te Kronnie G, Bresolin S, Bortoluzzi S, Discovery of fusion circular RNAs in leukemia with KMT2A::AFF1 rearrangements by the new software CircFusion, Brief Bioinform. 2022 Dec 30;bbac589._
